@@ -1,10 +1,11 @@
 //Basic function declaration
-function Header(){
+//props.navigationChangeHandler == {navigationChangeHandler} destructured
+function Header({navigationChangeHandler}){
 	const onHeaderClick = (e) => {
 		e.preventDefault();
 		if (e.target.tagName=='A') {
 			const url = new URL(e.target.href)
-			console.log(url.pathname)
+			navigationChangeHandler(url.pathname)
 		}
 
 	}
