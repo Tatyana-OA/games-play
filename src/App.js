@@ -7,6 +7,7 @@ import CreateGame from './components/CreateGame';
 import EditGame from './components/EditGame';
 import GameDetails from './components/GameDetails';
 import GameCatalog from './components/GameCatalog';
+import ErrorPage from './components/404';
 
 function App() {
 	const [page, setPage] = useState('/home');
@@ -17,6 +18,7 @@ function App() {
 		'/login': <Login />,
 		'/register': <Register />,
 		'/create-game': <CreateGame />,
+
 	}
 	const navigationChangeHandler = (path) => {
 		console.log(path)
@@ -30,7 +32,8 @@ function App() {
 			/>
 
             <main id="main-content">
-				{ routes[page] || <h2>ERROR</h2> }
+				{/* All elements passed in between the component start and end will be rendered inside it though props.children */}
+				{ routes[page] || <ErrorPage> <span>Not the druids you are looking for, eh?</span></ErrorPage> }
             </main>
 
         </div>
