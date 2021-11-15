@@ -8,6 +8,14 @@ import GameDetails from './components/GameDetails';
 import GameCatalog from './components/GameCatalog';
 
 function App() {
+
+	const routes = {
+		'/home': WelcomeWorld,
+		'/games': GameCatalog,
+		'/login': Login,
+		'/register': Register,
+		'/create-game': CreateGame,
+	}
     return (
         <div id="box">
 			<Header />
