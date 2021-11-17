@@ -1,8 +1,17 @@
-const Login = () => {
+import {useHistory} from 'react-router-dom';
+
+const Login = ({history}) => {
+	const onFormSubmit= (e) => {
+		e.preventDefault();
+		// useHistory can be used when the component is not a direct child of the Router; history injection
+		// let history = useHistory();
+		// Simulation of login; TODO actual login => redirect to games on Login
+		history.push('/games');
+	}
 	return (
 
 		<section id="login-page" className="auth">
-		<form id="login">
+		<form id="login" onSubmit={onFormSubmit}>
 
 			<div className="container">
 				<div className="brand-logo"></div>

@@ -7,7 +7,7 @@ import EditGame from './components/EditGame';
 import GameDetails from './components/GameDetails';
 import GameCatalog from './components/GameCatalog/GameCatalog';
 import ErrorPage from './components/404';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 function App() {
     return (
@@ -25,6 +25,9 @@ function App() {
 				<Route path="/create-game" component={CreateGame}/>
 				{/* using Router with router params  */}
 				<Route path="/details/:gameId" component={GameDetails}></Route>
+				<Route path="/logout" render={
+					() => (<Redirect to="/games"/>)
+				}/>
 				<Route path="*" component={ErrorPage}></Route>
 				</Switch>
             </main>
