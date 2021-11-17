@@ -8,6 +8,7 @@ import EditGame from './components/EditGame';
 import GameDetails from './components/GameDetails';
 import GameCatalog from './components/GameCatalog/GameCatalog';
 import ErrorPage from './components/404';
+import { Route, Switch } from 'react-router-dom';
 
 function App() {
 	const [page, setPage] = useState('/home');
@@ -44,8 +45,14 @@ function App() {
 			/>
 
             <main id="main-content">
-				{/* All elements passed in between the component start and end will be rendered inside it though props.children */}
-				{ router(page) || <ErrorPage> <span>Not the druids you are looking for, eh?</span></ErrorPage> }
+				{/* Switch works much like switch case (conditional rendering based on route) - finding match and breaking; Note exact is still needed as / is also included in /games */}
+				<Switch>
+				<Route path="/" exact component={WelcomeWorld}/>
+				<Route path="/games" component={GameCatalog}/>
+				<Route path="/login" component={Login}/>
+				<Route path="/register" component={Register}/>
+				<Route path="/create-game" component={CreateGame}/>
+				</Switch>
             </main>
 
         </div>
