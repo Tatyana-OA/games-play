@@ -28,6 +28,13 @@ function App() {
 				<Route path="/logout" render={
 					() => (<Redirect to="/games"/>)
 				}/>
+
+				{/* Example for props (children) in between the route */}
+				<Route path="/custom">
+					<h1>This is a custom page</h1>
+					<p>Hello world</p>
+				</Route>
+
 				<Route path="*" component={ErrorPage}></Route>
 				</Switch>
             </main>
