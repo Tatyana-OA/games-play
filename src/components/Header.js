@@ -1,5 +1,7 @@
 //Basic function declaration
 //props.navigationChangeHandler == {navigationChangeHandler} destructured
+
+import { Link } from 'react-router-dom';
 function Header({navigationChangeHandler}){
 	const onHeaderClick = (e) => {
 		e.preventDefault();
@@ -11,16 +13,16 @@ function Header({navigationChangeHandler}){
 	}
 	return (
 		<header onClick={onHeaderClick}>
-		<h1><a className="home" href="/home">GamesPlay</a></h1>
+		<h1><Link className="home" to="/">GamesPlay</Link></h1>
 		<nav>
-			<a href="/games">All games</a>
+			<Link to="/games">All games</Link>
 			<div id="user">
-				<a href="/create-game">Create Game</a>
-				<a href="/logout">Logout</a>
+				<Link to="/create-game">Create Game</Link>
+				<Link to="/logout">Logout</Link>
 			</div>
 			<div id="guest">
-				<a href="/login">Login</a>
-				<a href="/register">Register</a>
+				<Link to="/login">Login</Link>
+				<Link to="/register">Register</Link>
 			</div>
 		</nav>
 	</header>
