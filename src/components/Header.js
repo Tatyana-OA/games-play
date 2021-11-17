@@ -2,17 +2,9 @@
 //props.navigationChangeHandler == {navigationChangeHandler} destructured
 
 import { Link } from 'react-router-dom';
-function Header({navigationChangeHandler}){
-	const onHeaderClick = (e) => {
-		e.preventDefault();
-		if (e.target.tagName=='A') {
-			const url = new URL(e.target.href)
-			navigationChangeHandler(url.pathname)
-		}
-
-	}
+function Header(){
 	return (
-		<header onClick={onHeaderClick}>
+		<header>
 		<h1><Link className="home" to="/">GamesPlay</Link></h1>
 		<nav>
 			<Link to="/games">All games</Link>
